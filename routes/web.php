@@ -11,7 +11,8 @@ Route::get('/', function () {
 Route::get('/dashboard', DashboardController::class)->middleware(['auth'])->name('dashboard');
 
 Route::get('/instructor/dashboard', function () {
-    return view('instructor.dashboard');
+    // return view('instructor.dashboard');
+    return redirect()->route('filament.instructor.pages.dashboard');
 })->middleware(['auth','role:instructor'])->name('instructor.dashboard');
 
 Route::get('/admin/dashboard', function () {
