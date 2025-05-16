@@ -25,9 +25,8 @@ class DashboardController extends Controller
                 break;
             
             case 'admin':
-                // return redirect('/admin');
+            //  return redirect('/admin');
                 // return redirect()->route('filament.admin.pages.dashboard');
-
                 return redirect()->route('admin.dashboard');
                 break;
                         
