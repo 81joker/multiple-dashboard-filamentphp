@@ -11,18 +11,16 @@ Route::get('/', function () {
 Route::get('/dashboard', DashboardController::class)->middleware(['auth'])->name('dashboard');
 
 Route::get('/instructor/dashboard', function () {
-    // return view('instructor.dashboard');
     return redirect()->route('filament.instructor.pages.dashboard');
 })->middleware(['auth','role:instructor'])->name('instructor.dashboard');
 
 Route::get('/admin/dashboard', function () {
-    // return view('admin.dashboard');
     return redirect()->route('filament.admin.pages.dashboard');
 })->middleware(['auth','role:admin'])->name('admin.dashboard');
 
-Route::get('/parents/dashboard', function () {
-    return redirect()->route('filament.parents.pages.dashboard');
-})->middleware(['auth','role:parent'])->name('parents.dashboard');
+Route::get('/parent/dashboard', function () {
+    return redirect()->route('filament.parent.pages.dashboard');
+})->middleware(['auth','role:parent'])->name('parent.dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
