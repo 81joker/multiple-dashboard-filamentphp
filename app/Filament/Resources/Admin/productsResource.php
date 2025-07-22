@@ -2,29 +2,31 @@
 
 namespace App\Filament\Resources\Admin;
 
-use App\Filament\Resources\Admin\ProductsResource\Pages;
-use App\Filament\Resources\Admin\ProductsResource\RelationManagers;
-use App\Models\Admin\Products;
 use Filament\Forms;
-use Filament\Forms\Form;
-use Filament\Resources\Resource;
 use Filament\Tables;
+use App\Models\Product;
+use Filament\Forms\Form;
 use Filament\Tables\Table;
+use App\Models\Admin\Products;
+use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
+use App\Filament\Resources\Admin\ProductsResource\Pages;
+use App\Filament\Resources\Admin\ProductsResource\RelationManagers;
 
 class ProductsResource extends Resource
 {
-    protected static ?string $model = Products::class;
+    protected static ?string $model = Product::class;
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
-    protected static ?string $navigationGroup = 'Produkte / Buchhaltung';
-    protected static ?int $navigationSort = 3;
+    protected static ?string $navigationGroup = 'Produkte / Buchhaltung  ';
+    protected static ?int $navigationSort = 0;
+
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                
+                //
             ]);
     }
 
