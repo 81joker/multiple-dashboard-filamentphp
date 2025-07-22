@@ -26,7 +26,44 @@ class ProductsResource extends Resource
     {
         return $form
             ->schema([
-                //
+                 Forms\Components\TextInput::make('title')
+                    ->required()
+                    ->label('Produktname'),
+                Forms\Components\TextInput::make('price')
+                    ->required()
+                    ->label('Preis')
+                    ->numeric()
+                    ->minValue(0),
+                Forms\Components\TextInput::make('num_trainings')
+                    ->required()
+                    ->label('Anzahl Trainings')
+                    ->numeric()
+                    ->minValue(0),
+                Forms\Components\DateTimePicker::make('term_month')
+                    ->label('Laufzeit in Monaten')
+                    ->nullable()
+                    ->default(now()->addMonth()->addHour())
+                    ->minDate(now())
+                    ->maxDate(now()->addYears(1)),
+                Forms\Components\TextInput::make('sort')
+                    ->default(999)
+                    ->label('Sortierung')
+                    ->numeric()
+                    ->minValue(0),
+                Forms\Components\Select::make('status')
+                    ->options([
+                        1 => 'Aktiv',
+                        // 1 => 'Entwurf',
+                        2 => 'In Bearbeitung',
+                    ])
+                    ->default(1)
+                    ->label('Status'),
+                Forms\Components\Section::make('Beschreibung')
+                    ->description('Hier können Sie eine ausführliche Beschreibung des Produkts eingeben.')
+                    ->schema([
+                        Forms\Components\Textarea::make('description')
+                            ->label('Beschreibung'),
+                    ])
             ]);
     }
 
