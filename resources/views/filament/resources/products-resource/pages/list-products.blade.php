@@ -17,7 +17,7 @@
                                     color="primary"
                                     size="sm"
                                     tag="a"
-                                    href="{{ route('filament.admin.resources.admin.products.edit', ['record' => $product->id]) }}"
+                                    href="{{ route('filament.admin.resources.products.edit', ['record' => $product->id]) }}"
                                     class="w-full py-3">
                                     Edit Product
                                 </x-filament::button>

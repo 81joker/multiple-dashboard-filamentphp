@@ -7,7 +7,6 @@ use Filament\Tables;
 use App\Models\Product;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
-use App\Models\Admin\Products;
 use Filament\Resources\Resource;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\SoftDeletingScope;
@@ -66,6 +65,11 @@ class ProductsResource extends Resource
                     ])
             ]);
     }
+    public static function getSlug(): string
+{
+    return 'products'; // This removes the extra "admin" from the path
+}
+
 
     public static function table(Table $table): Table
     {
@@ -93,6 +97,11 @@ class ProductsResource extends Resource
         ];
     }
 
+    // public static function getRoutePrefix(): string
+    // {
+    //     return 'admin/products'; // instead of default 'admin/admin/products'
+    // }
+    
     public static function getPages(): array
     {
         return [

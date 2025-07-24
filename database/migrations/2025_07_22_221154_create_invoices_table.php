@@ -28,8 +28,15 @@ return new class extends Migration
             $table->text('note')->nullable();
             $table->datetime('paid_on')->nullable();
             $table->integer('paid')->default('0');
-            $table->unsignedBigInteger('parent_id')->nullable();
-            $table->foreign('parent_id')->references('id')->on('parents')->onDelete('cascade');
+
+
+
+            // TODO: Nehad you should to make this Relationships with Parents 
+            // FIXME: nehad you should to make this Relationships with Parents 
+            // $table->unsignedBigInteger('parent_id')->nullable();
+            // $table->foreign('parent_id')->references('id')->on('parents')->onDelete('cascade');
+
+
             $table->unsignedBigInteger('user_id')->nullable();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->datetime('created_on')->nullable();

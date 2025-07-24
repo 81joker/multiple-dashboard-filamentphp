@@ -4,7 +4,7 @@ namespace App\Filament\Resources\Admin;
 
 use App\Filament\Resources\Admin\InvoicesResource\Pages;
 use App\Filament\Resources\Admin\InvoicesResource\RelationManagers;
-use App\Models\Admin\Invoices;
+use App\Models\Invoices;
 use Filament\Forms;
 use Filament\Forms\Form;
 use Filament\Resources\Resource;

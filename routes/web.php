@@ -7,7 +7,10 @@ use App\Http\Controllers\DashboardController;
 Route::get('/', function () {
     return view('welcome');
 });
-
+// TODO: remove this commit when this issue resove
+// Route::get('/admin/admin/products', function () {
+//     return redirect('/admin/products');
+// });
 Route::get('/dashboard', DashboardController::class)->middleware(['auth'])->name('dashboard');
 
 Route::get('/instructor/dashboard', function () {
