@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\Invoices;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class InvoiceOrderItem extends Model
@@ -19,13 +21,13 @@ class InvoiceOrderItem extends Model
         'price',
         'final_amount'
     ];
-    // public function invoices():BelongsTo
-    // {
-    //     return $this->belongsTo(Invoices::class,'invoice_id' ,'id');
-    // }
+    public function invoices():BelongsTo
+    {
+        return $this->belongsTo(Invoices::class,'invoice_id' ,'id');
+    }
 
-    // public function products()
-    // {
-    //     return $this->belongsTo(Product::class,'product_id' ,'id');
-    // }
+    public function product(): BelongsTo
+    {
+        return $this->belongsTo(Product::class,'product_id' ,'id');
+    }
 }

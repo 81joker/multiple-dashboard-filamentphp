@@ -18,5 +18,10 @@ class Product extends Model
         'status',
         'description',
     ];
+
+    public function invoiceOrderItems()
+    {
+        return $this->hasMany(InvoiceOrderItem::class, 'product_id', 'id');
+    }
     
 }

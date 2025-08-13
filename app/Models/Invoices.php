@@ -2,7 +2,9 @@
 
 namespace App\Models;
 
+use App\Models\InvoiceOrderItem;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Invoices extends Model
@@ -26,24 +28,17 @@ class Invoices extends Model
         'created_on',
         'order_total_after_tax',
     ];
-    // public function items():HasMany
-    // {
-    //   return $this->hasMany(InvoiceOrderItem::class ,'invoice_id','id');
-    // }
+    public function items():HasMany
+    {
+      return $this->hasMany(InvoiceOrderItem::class ,'invoice_id','id');
+    }
 
-    // public function users()
-    // {
-    //     return $this->belongsTo(User::class,'user_id' ,'id');
-    // }
+    public function users()
+    {
+        return $this->belongsTo(User::class,'user_id' ,'id');
+    }
 
-    // public function Touserid()
-    // {
-    //     return $this->belongsTo(User::class,'to_userid' ,'id');
-    // }
+    
 
-    // public function userOrder()
-    // {
-    //   return $this->hasMany(UserOrders::class ,'invoice_id','id');
-    // }
 
 }
