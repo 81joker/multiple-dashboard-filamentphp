@@ -51,6 +51,14 @@ class InvoicesResource extends Resource
                     
                 Forms\Components\Section::make('Device Information')
                     ->schema([
+                        Forms\Components\Select::make('XXXx')
+                            ->label('')
+                            ->options([
+                                'parent' => 'Parent',
+                                'child' => 'Child',
+                            ])
+                            ->required(),
+
                         Forms\Components\Select::make('device_type')
                             ->label('Device Type')
                             ->options([
