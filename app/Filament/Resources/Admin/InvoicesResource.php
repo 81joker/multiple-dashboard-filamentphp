@@ -4,6 +4,7 @@ namespace App\Filament\Resources\Admin;
 use Filament\Forms;
 
 use Filament\Tables;
+use App\Models\Product;
 use App\Models\Invoices;
 use Filament\Forms\Form;
 use Filament\Tables\Table;
@@ -78,9 +79,15 @@ class InvoicesResource extends Resource
                         Forms\Components\Repeater::make('items')
                             ->label('Device Items')
                             ->schema([
-                                Forms\Components\TextInput::make('product_name')
-                                    ->label('Product')
-                                    ->required(),
+
+                                    Forms\Components\Select::make('product_id')
+                        ->label('Product')
+                        ->options(Product::all()->pluck('title', 'id'))
+                        ->searchable()
+                        ->required(),
+
+
+
                                 Forms\Components\TextInput::make('price')
                                     ->label('Price')
                                     ->numeric()
@@ -95,48 +102,48 @@ class InvoicesResource extends Resource
                             ->addActionLabel('Add Item'),
                     ]),
                     
-                Forms\Components\Section::make('Payment Information')
-                    ->schema([
-                        Forms\Components\Select::make('salesperson')
-                            ->label('SALESPERSON')
-                            ->options([
-                                'Roy Greenfelder' => 'Roy Greenfelder',
-                                // Add more salespeople as needed
-                            ])
-                            ->required(),
+                // Forms\Components\Section::make('Payment Information')
+                //     ->schema([
+                //         Forms\Components\Select::make('salesperson')
+                //             ->label('SALESPERSON')
+                //             ->options([
+                //                 'Roy Greenfelder' => 'Roy Greenfelder',
+                //                 // Add more salespeople as needed
+                //             ])
+                //             ->required(),
                             
-                        Forms\Components\TextInput::make('subtotal')
-                            ->label('Subtotal')
-                            ->prefix('€')
-                            ->numeric()
-                            ->default(0),
+                //         Forms\Components\TextInput::make('subtotal')
+                //             ->label('Subtotal')
+                //             ->prefix('€')
+                //             ->numeric()
+                //             ->default(0),
                             
-                        Forms\Components\TextInput::make('discount')
-                            ->label('Discount')
-                            ->prefix('€')
-                            ->numeric()
-                            ->default(0),
+                //         Forms\Components\TextInput::make('discount')
+                //             ->label('Discount')
+                //             ->prefix('€')
+                //             ->numeric()
+                //             ->default(0),
                             
-                        Forms\Components\TextInput::make('tax')
-                            ->label('Tax')
-                            ->prefix('€')
-                            ->numeric()
-                            ->default(0),
+                //         Forms\Components\TextInput::make('tax')
+                //             ->label('Tax')
+                //             ->prefix('€')
+                //             ->numeric()
+                //             ->default(0),
                             
-                        Forms\Components\TextInput::make('total')
-                            ->label('Total')
-                            ->prefix('€')
-                            ->numeric()
-                            ->default(0),
-                    ]),
+                //         Forms\Components\TextInput::make('total')
+                //             ->label('Total')
+                //             ->prefix('€')
+                //             ->numeric()
+                //             ->default(0),
+                //     ]),
                     
-                Forms\Components\Section::make('Notes')
-                    ->schema([
-                        Forms\Components\Textarea::make('notes')
-                            ->label('NOTE')
-                            ->default('Invoice note')
-                            ->columnSpanFull(),
-                    ]),
+                // Forms\Components\Section::make('Notes')
+                //     ->schema([
+                //         Forms\Components\Textarea::make('notes')
+                //             ->label('NOTE')
+                //             ->default('Invoice note')
+                //             ->columnSpanFull(),
+                    // ]),
             ]);
             // ->schema([
             //     Forms\Components\Section::make('Invoice Information')

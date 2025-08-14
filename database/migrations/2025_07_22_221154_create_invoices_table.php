@@ -17,12 +17,12 @@ return new class extends Migration
             $table->timestamp('order_date')->default(Carbon::now());
             $table->string('order_receiver_name', 250)->nullable();
             $table->text('order_receiver_address')->nullable();
-            $table->decimal('order_total_before_tax', 10, 2);
+            $table->decimal('order_total_before_tax', 10, 2)->nullable();
             $table->decimal('order_total_after_tax', 10, 2)->nullable();
             $table->decimal('order_total_tax', 10, 2)->nullable();
-            $table->string('order_tax_per', 250);
-            $table->decimal('order_amount_paid', 10, 2);
-            $table->decimal('order_total_amount_due', 10, 2);
+            $table->string('order_tax_per', 250)->nullable();
+            $table->decimal('order_amount_paid', 10, 2)->nullable();
+            $table->decimal('order_total_amount_due', 10, 2)->nullable();
             $table->string('pay_with')->nullable();
             $table->string('notes')->nullable();
             $table->text('note')->nullable();
